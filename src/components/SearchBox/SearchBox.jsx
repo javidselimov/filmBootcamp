@@ -1,44 +1,55 @@
-import  { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SearchBox.css';
+import MovieItem from '../MovieItem/MovieItem';
 
-const SearchBox =()=> {
-    const [state,setState]=useState({
-        searchLine: ''
-    })
-   
+export default function SearchBox() {
+    const [searchLine, setSearchLine] = useState("")
+
     const searchLineChangeHandler = (e) => {
-        this.setState({ searchLine: e.target.value });
+        setSearchLine(e.target.value);
     }
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
     }
-    
-        const { searchLine } = state;
-
-        return (
-            <div className="search-box">
-                <form className="search-box__form" onSubmit={searchBoxSubmitHandler}>
-                    <label className="search-box__form-label">
-                        Искать фильм по названию:
-                        <input
-                            value={searchLine}
-                            type="text"
-                            className="search-box__form-input"
-                            placeholder="Например, Shawshank Redemption"
-                            onChange={searchLineChangeHandler}
-                        />
-                    </label>
-                    <button
-                        type="submit"
-                        className="search-box__form-submit"
-                        disabled={!searchLine}
-                    >
-                        Искать
-                    </button>
-                </form>
-            </div>
-        );
-    
+    const [film, setFilm] = useState([]);
+    // const handleInfo= () => {
+    //     setFilteredVersion(film.filter(item =>item.Title.includes(inputValue)|| item.department.includes(inputValue)));
+    //     setInputValue('');
+    // };
+    useEffect(() => {
+        fetch('https://www.omdbapi.com/?s=godfather&apikey=3f1a9991&page-size=2')
+            .then(response => response.json())
+            .then(data => {
+                setFilm(data.Search.slice(0,2));
+            })
+            .catch(error => {
+                console.log('Error', error);
+            });
+    }, [])
+    const render = film.map(item => <MovieItem key={item.imdbID} title={item.Title} year={item.Year} poster={item.Poster} />)
+    return (
+        <div className="search-box">
+            <form className="search-box__form" onSubmit={searchBoxSubmitHandler}>
+                <label className="search-box__form-label">
+                    Искать фильм по названию:
+                    <input
+                        value={searchLine}
+                        type="text"
+                        className="search-box__form-input"
+                        placeholder="Например, Shawshank Redemption"
+                        onChange={searchLineChangeHandler}
+                    />
+                </label>
+                <button
+                // onClick={handleInfo}
+                    type="submit"
+                    className="search-box__form-submit"
+                    disabled={!searchLine}
+                >
+                    Искать
+                </button>
+            </form>
+            {render}
+        </div>
+    );
 }
- 
-export default SearchBox;
