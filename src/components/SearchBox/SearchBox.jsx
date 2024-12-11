@@ -7,7 +7,7 @@ const SearchBox =()=> {
     })
    
     const searchLineChangeHandler = (e) => {
-        this.setState({ searchLine: e.target.value });
+      setState({ searchLine: e.target.value });
     }
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
