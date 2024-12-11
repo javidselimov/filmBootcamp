@@ -3,7 +3,6 @@
     border: 1px solid rgba(0, 8, 7);
     padding: 30px 20px;
 }
-
 .favorites__name {
     box-sizing: border-box;
     width: 100%;
@@ -12,11 +11,9 @@
     border: 1px solid rgba(0, 8, 7, .5);
     margin-bottom: 24px;
 }
-
 .favorites__list {
     margin-bottom: 24px;
 }
-
 .favorites__save {
     border: none;
     background-color: #496DDB;
@@ -25,7 +22,6 @@
     font-size: 14px;
     transition: all 0.2s linear;
 }
-
 .favorites__save:hover {
     cursor: pointer;
     opacity: 0.9;

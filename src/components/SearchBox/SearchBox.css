@@ -1,13 +1,11 @@
 .search-box__form {
     display: flex;
 }
-
 .search-box__form-label {
     display: inline-block;
     font-size: 12px;
     margin-right: 10px;
 }
-
 .search-box__form-input {
     box-sizing: border-box;
     display: block;
@@ -17,7 +15,6 @@
     padding: 5px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
 }
-
 .search-box__form-submit {
     margin-top: 17px;
     padding: 5px 10px;
@@ -26,7 +23,6 @@
     color: #FFEEDB;
     background-color: rgba(0, 8, 7);
 }
-
 .search-box__form-submit:hover:not(:disabled) {
     opacity: 0.8;
     cursor: pointer;
@@ -34,7 +30,6 @@
     background-color: #FFEEDB;
     color: rgba(0, 8, 7);
 }
-
 .search-box__form-submit:disabled {
     opacity: 0.5;
     cursor: not-allowed;
