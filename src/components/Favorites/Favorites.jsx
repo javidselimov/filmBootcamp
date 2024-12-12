@@ -1,7 +1,5 @@
 import  {  useState } from 'react';
 import './Favorites.css';
-
-
 const  Favorites=() =>{
    const [state,setSTate] =  useState({
         title: 'Новый список',
