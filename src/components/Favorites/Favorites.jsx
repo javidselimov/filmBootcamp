@@ -4,23 +4,18 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const  Favorites=() =>{
-//    const [state, setSTate] =  useState({
-        // title: 'Новый список',
-        // movies: [
-        //     { imdbID: 'tt0068646', title: 'The Godfather', year: 1972 }
-//         ]
-//     })
 
 
+    const favorites = useSelector((state)=>state.favorites)
 
 
 
         return (
             <div className="favorites">
-                <input value={state.title} className="favorites__name" />
+                <input value={favorites.title} className="favorites__name" />
                 <ul className="favorites__list">
-                    {state.movies.map((item) => {
-                        return <li key={item.id}>{item.title} ({item.year})</li>;
+                    {favorites.movies.map((item) => {
+                        return <li key={item.imdbID}>{item.Title} ({item.Year})</li>;
                     })}
                 </ul>
                 <button type="button" className="favorites__save">Сохранить список</button>

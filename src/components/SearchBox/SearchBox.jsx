@@ -16,10 +16,8 @@ const SearchBox =()=> {
     }
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
-        // console.log(state)
         fetch(`https://omdbapi.com/?s=${searchLine}&apikey=f8def711`).then(res=>res.json()).then((data)=>{
             dispatch(getMovies(data.Search));
-            console.log(data.Search)
         })
     }
     

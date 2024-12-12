@@ -4,7 +4,7 @@ import favoritesSlice from '../app/feautures/favorites/favoritesSlice'
 export const store = configureStore({
   reducer: {
     movies: moviesSlice,
-    favorites: favoritesSlice
+    favorites: favoritesSlice,
   },
 })
 export default store
