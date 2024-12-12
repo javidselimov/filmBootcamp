@@ -1,19 +1,28 @@
 import  { useState } from 'react';
 import './SearchBox.css';
+import { useDispatch } from 'react-redux';
+import { getMovies } from '../../app/feautures/movies/moviesSlice';
 
 const SearchBox =()=> {
+    const dispatch = useDispatch()
     const [state,setState]=useState({
         searchLine: ''
     })
+    const { searchLine } = state;
+
    
     const searchLineChangeHandler = (e) => {
-        this.setState({ searchLine: e.target.value });
+        setState({ searchLine: e.target.value });
     }
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        // console.log(state)
+        fetch(`https://omdbapi.com/?s=${searchLine}&apikey=f8def711`).then(res=>res.json()).then((data)=>{
+            dispatch(getMovies(data.Search));
+            console.log(data.Search)
+        })
     }
     
-        const { searchLine } = state;
 
         return (
             <div className="search-box">
@@ -32,6 +41,7 @@ const SearchBox =()=> {
                         type="submit"
                         className="search-box__form-submit"
                         disabled={!searchLine}
+                        onClick={()=>searchBoxSubmitHandler()}
                     >
                         Искать
                     </button>
