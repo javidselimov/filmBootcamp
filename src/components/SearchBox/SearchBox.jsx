@@ -68,7 +68,7 @@ export default function SearchBox() {
             title={element.Title} 
             year={element.Year} 
             poster={element.Poster}
-            // imdbID={element.imdbID} 
+            imdbID={element.imdbID} 
         />
     })
     return (

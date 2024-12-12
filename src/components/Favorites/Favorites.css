@@ -31,3 +31,22 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+.favorites__save:disabled {
+    background-color: silver;
+    cursor: not-allowed;
+}
+
+.favorites__delete-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.favorites__delete-button:hover {
+    background-color: orangered;
+}
