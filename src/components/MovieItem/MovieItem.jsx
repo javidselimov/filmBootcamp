@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import './MovieItem.css';
 import { useDispatch } from 'react-redux';
-import { addToList } from '../../app/features/movie/movieSlice';
+import { addTolist } from '../../features/movieSlice';
 
 export default function MovieItem({ title, year, poster }) {
-    const [newMovie, setNewMovie]=useState("");
+    const [newMovie, setNewMovie]=useState({title, year});
     const dispatch=useDispatch();
     const handleAdding=()=>{
+        console.log({title, year})
         if (newMovie){
-            dispatch(addToList(newMovie));
+            dispatch(addTolist(newMovie));
             setNewMovie("");
         }
     }

@@ -22,8 +22,6 @@ export default function MainPage() {
                         <Favorites />
                     </aside>
                 </main>
-                {/* <SearchBox />
-                <MovieList /> */}
             </div>
         );
     }
