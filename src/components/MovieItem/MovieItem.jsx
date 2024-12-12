@@ -1,25 +1,7 @@
-// // import React, { Component } from 'react';
-// // import './MovieItem.css';
-
-// // const MovieItem = () => {
-// //         const { title, year, poster } = props;
-// //         return (
-// //             <article className="movie-item">
-// //                 <img className="movie-item__poster" src={poster} alt={title} />
-// //                 <div className="movie-item__info">
-// //                     <h3 className="movie-item__title">{title}&nbsp;({year})</h3>
-// //                     <button type="button" className="movie-item__add-button">Добавить в список</button>
-// //                 </div>
-// //             </article>
-// //         );
-// //     }
-
-// // export default MovieItem;
 // import React from 'react';
 // import './MovieItem.css';
 
-// const MovieItem = (props) => {
-//   const { title, year, poster } = props;
+// const MovieItem = ({ title, year, poster, imdbID, onAddToFavorites }) => {
 //   return (
 //     <article className="movie-item">
 //       <img className="movie-item__poster" src={poster} alt={title} />
@@ -27,7 +9,11 @@
 //         <h3 className="movie-item__title">
 //           {title}&nbsp;({year})
 //         </h3>
-//         <button type="button" className="movie-item__add-button">
+//         <button
+//           type="button"
+//           className="movie-item__add-button"
+//           onClick={() => onAddToFavorites({ title, year, imdbID })}
+//         >
 //           Добавить в список
 //         </button>
 //       </div>
@@ -36,6 +22,7 @@
 // };
 
 // export default MovieItem;
+
 import React from 'react';
 import './MovieItem.css';
 
@@ -45,12 +32,12 @@ const MovieItem = ({ title, year, poster, imdbID, onAddToFavorites }) => {
       <img className="movie-item__poster" src={poster} alt={title} />
       <div className="movie-item__info">
         <h3 className="movie-item__title">
-          {title}&nbsp;({year})
+          {title} ({year})
         </h3>
         <button
           type="button"
           className="movie-item__add-button"
-          onClick={() => onAddToFavorites({ title, year, imdbID })}
+          onClick={() => onAddToFavorites({ title, year, imdbID, poster })}
         >
           Добавить в список
         </button>
