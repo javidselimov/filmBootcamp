@@ -2,8 +2,11 @@ import { useState } from 'react';
 import './SearchBox.css';
 import ListPage from '../../pages/ListPage/ListPage';
 import Movies from '../Movies/Movies';
+import { getMovies } from '../../app/movies/movieSlice';
+import { useDispatch } from 'react-redux';
 
 const SearchBox = () => {
+    const dispatch = useDispatch();
     const [state, setState] = useState({
         searchLine: ''
     })
@@ -14,30 +17,17 @@ const SearchBox = () => {
         setState({ searchLine: e.target.value });
         console.log(state.searchLine)
     }
-    // const searchBoxSubmitHandler = (e) => {
-    //     e.preventDefault();
-    //     fetch(`https://www.omdbapi.com/?s=${state.searchLine}&apikey=7652f97b`).then((response) => {
-    //         return response.json()
-    //     }).then((movies) => {
-    //         console.log(movies);
-    //         <ListPage movies={movies} />
-    //     })
-    // }
 
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
-        fetch(`https://www.omdbapi.com/?s=${searchLine}&apikey=7652f97b`).then(
+        fetch(`https://www.omdbapi.com/?s=${state.searchLine}&apikey=7652f97b`).then(
             (response) => response.json()).then((data) => {
                 if (data.Search) {
-                    setMovies(data.Search);
-                } else { setMovies([]); }
-            }).catch((error) => {
-                console.error('Error fetching movies:', error);
-                setMovies([]);
-            });
+                    dispatch(getMovies(data.Search))
+                }
+                console.log(data)
+            })
     };
-
-    // const { searchLine } = state;
 
     return (
         <div className="search-box">
@@ -60,7 +50,6 @@ const SearchBox = () => {
                     Искать
                 </button>
             </form>
-            {/* {movies && <Movies movies={movies} />}     */}
         </div>
         
     );
