@@ -60,8 +60,9 @@ const SearchBox = () => {
                     Искать
                 </button>
             </form>
-            {movies && <Movies movies={movies} />}    
+            {/* {movies && <Movies movies={movies} />}     */}
         </div>
+        
     );
 
 }
