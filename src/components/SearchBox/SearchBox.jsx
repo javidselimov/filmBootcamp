@@ -11,11 +11,8 @@ const SearchBox = () => {
         searchLine: ''
     })
 
-    const [movies, setMovies] = useState([]);
-
     const searchLineChangeHandler = (e) => {
         setState({ searchLine: e.target.value });
-        console.log(state.searchLine)
     }
 
     const searchBoxSubmitHandler = (e) => {
@@ -25,7 +22,6 @@ const SearchBox = () => {
                 if (data.Search) {
                     dispatch(getMovies(data.Search))
                 }
-                console.log(data)
             })
     };
 

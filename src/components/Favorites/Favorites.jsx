@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import './Favorites.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateMovie } from '../../app/favorites/favoritesSlice';
 
 
 const Favorites = () => {
-    //    const [state,setState] =  useState({
-    //         title: 'Новый список',
-    //         movies: [
-    //             { imdbID: 'tt0068646', title: 'The Godfather', year: 1972 }
-    //         ]
-    //     })
     const favorites = useSelector((state) => state.favorites);
+    const dispatch = useDispatch();
 
+    const deleteMovie = (id) => {
+       const filteredMovies = favorites.movies.filter((movie) => movie.imdbID !== id);
+        dispatch(updateMovie(filteredMovies))
+    }
+
+    console.log(favorites, "favorites")
     return (
         <div className="favorites">
             <input value={favorites.title} className="favorites__name" />
@@ -19,7 +21,7 @@ const Favorites = () => {
                 {favorites.movies.map((item) => {
                     return <>
                         <li key={item.imdbID}>{item.Title} ({item.Year})</li>
-                        <button>Delete</button>
+                        <button onClick={() => deleteMovie(item.imdbID) }>Delete</button>
                     </>;
                 })}
             </ul>

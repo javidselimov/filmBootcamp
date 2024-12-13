@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import './MovieItem.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { saveMovie } from '../../app/favorites/favoritesSlice';
 
 const MovieItem = ({ Title, Year, Poster, imdbID }) => {
 
     const dispatch = useDispatch();
+    const favoritesState = useSelector(state=>state.favorites);
     
     const saveToFavorites = () => {
-        const action = {
+        const movie = {
             imdbID: imdbID,
             Title: Title,
             Year: Year,
             Poster: Poster
         }
-        dispatch(saveMovie(action));
-        console.log(action)
+
+        const isContained = favoritesState.movies.find((movie) => movie.imdbID === imdbID);
+
+        if(!isContained){
+            dispatch(saveMovie(movie));
+        }
+
+        
     }
     return (
         <article className="movie-item">

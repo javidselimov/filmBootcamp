@@ -4,12 +4,12 @@ import './ListPage.css';
 
 
 const ListPage = (props) => {
-    console.log(props)
+   
     const [state, setState] = useState(1)
 
     setState({movies: state});
 
-    console.log(state.movies, movies)
+   
 
     useEffect(() => {
         // TODO: запрос к сервер на получение списка
