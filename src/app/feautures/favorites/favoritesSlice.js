@@ -3,7 +3,6 @@ const initial = {
     title: "New list",
     movies: [
         { imdbID: 'tt0068646', Title: 'The Godfather', Year: 1973 }
-        
     ]
 }
 
@@ -16,9 +15,10 @@ const favoritesSlice = createSlice({
         },
         saveMovie: (state, action) => {
             state.movies.push(action.payload);
+            
         },
         deleteMovie: (state, action) => {
-            state.movies = state.movies.filter((item) => item.id !== action.payload);
+            state.movies = [...action.payload]
         }
     },
 });

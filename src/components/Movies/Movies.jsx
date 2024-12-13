@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 const Movies = () => {
     const movies = useSelector((state) => state.movies.value);
-    console.log(movies, 'Movies')
 
         return ( 
             <ul className="movies">

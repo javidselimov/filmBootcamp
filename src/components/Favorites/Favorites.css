@@ -31,3 +31,12 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+.delete{
+    border: none;
+    background-color: bisque;
+    color: black;
+    width: 50px;
+    height: 20px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
