@@ -14,7 +14,6 @@ export const moviesSlice = createSlice({
   reducers: {
     setMovies: (state, action) => {
         state.movies = action.payload;
-        // state.movies.push(action.payload);
     },
     setFiltered: (state, action) => {
         state.filtered = action.payload;
@@ -29,7 +28,9 @@ export const moviesSlice = createSlice({
       state.favouriteMovies = action.payload;
     },
     addFavoriteMovie: (state, action) => {
-      state.favouriteMovies.push(action.payload);
+      if (!state.favouriteMovies.find(movie => movie.imdbID === action.payload.imdbID)) {
+        state.favouriteMovies=[...state.favouriteMovies, action.payload];
+      }
     },
     removeFavoriteMovie: (state, action) => {
       state.favouriteMovies = state.favouriteMovies.filter(movie => movie.imdbID !== action.payload);

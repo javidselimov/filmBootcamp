@@ -9,14 +9,8 @@ export default function SearchBox() {
         searchLine: ''
     })
 
-    // const [movies, setMovies] = useState([]);
-    // const [filtered, setFiltered] = useState([]);
-    // const [imdbIDValue, setImdbIDValue] = useState([]);
-
     const dispatch = useDispatch();
-    // const filteredMovies = useSelector((state) => state.movies.filteredMovies);
     const movies = useSelector((state) => state.movies.movies);
-    // const { movies } = useSelector((state) => state.movies);
    
     const searchLineChangeHandler = (e) => {
         setSearchState((p) => ({
@@ -30,13 +24,8 @@ export default function SearchBox() {
         .then((data) => {
             console.log(data);
             console.log(data.Search);
-            // data.Search.forEach((element) => {
-            //     dispatch(setMovies(element));
-            // })
             dispatch(setMovies(data.Search.slice(0,2)));
             dispatch(setFiltered(data.Search.slice(0, 2)));
-            // setMovies(data.Search.slice(0,2));
-            // setFiltered(data.Search.slice(0, 2));
         })
     }, [dispatch])
 
@@ -56,13 +45,10 @@ export default function SearchBox() {
             );
             dispatch(setMovies(data.Search));
             dispatch(setFiltered(filteredMovies));
-            // setMovies(data.Search);
-            // setFiltered(filteredMovies);
         })
     }
 
     const render = movies.map((element) => {
-        // console.log("element = " + element.Title);
         return <MovieItem 
             key={element.imdbID} 
             title={element.Title} 
@@ -97,5 +83,3 @@ export default function SearchBox() {
         </div>
     );
 }
- 
-// export default SearchBox;

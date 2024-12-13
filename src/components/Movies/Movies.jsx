@@ -8,12 +8,6 @@ export default function Movies() {
     const [state, setState] = useState({
         movies: []
     })
-    const movies = useSelector((state) => state.movies.movies);
-    // const dispatch = useDispatch();
-
-        // useEffect(() => {
-        //     dispatch(setMovies());
-        // }, [dispatch]);
 
   return (
     <ul className="movies">
