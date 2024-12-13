@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import './Favorites.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateMovie } from '../../app/favorites/favoritesSlice';
@@ -13,10 +13,14 @@ const Favorites = () => {
         dispatch(updateMovie(filteredMovies))
     }
 
-    console.log(favorites, "favorites")
+    const saveMovieList = () => {
+        console.log(favorites, "favorites blet")
+        
+    }
+
     return (
         <div className="favorites">
-            <input value={favorites.title} className="favorites__name" />
+            <input defaultValue={favorites.title} className="favorites__name" />
             <ul className="favorites__list">
                 {favorites.movies.map((item) => {
                     return <>
@@ -25,7 +29,7 @@ const Favorites = () => {
                     </>;
                 })}
             </ul>
-            <button type="button" className="favorites__save">Сохранить список</button>
+            <button type="button" className="favorites__save" onClick={() => saveMovieList()}>Сохранить список</button>
         </div>
     );
 

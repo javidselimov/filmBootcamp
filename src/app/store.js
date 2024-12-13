@@ -5,6 +5,6 @@ import favoritesSlice from "../app/favorites/favoritesSlice";
 export const store = configureStore({
     reducer: {
         movies: movieSlice,
-        favorites: favoritesSlice
+        favorites: favoritesSlice,
     }
 })
