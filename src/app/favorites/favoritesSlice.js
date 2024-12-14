@@ -13,7 +13,7 @@ const favoritesSlice = createSlice({
     initialState: initialState,
     reducers: {
         setTitle: (state, action) => {
-            state.movies = action.payload.title;
+            state.title = action.payload;
         },
         saveMovie: (state, action) => {
             state.movies = [...state.movies, action.payload];
@@ -21,8 +21,12 @@ const favoritesSlice = createSlice({
         updateMovie: (state, action) => {
             state.movies = [...action.payload]
         },
+        resetValue: (state) => {
+            state.title = 'My Favorites',
+            state.movies = []
+        }
     }
 })
 
-export const { saveMovie, updateMovie, setTitle } = favoritesSlice.actions;
+export const { saveMovie, updateMovie, setTitle, resetValue } = favoritesSlice.actions;
 export default favoritesSlice.reducer;

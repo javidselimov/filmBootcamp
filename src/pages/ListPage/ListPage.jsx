@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import './ListPage.css';
+import { useParams } from 'react-router-dom';
 
 
 
 const ListPage = (props) => {
-   
-    const [state, setState] = useState(1)
 
-    setState({movies: state});
-
+    const {id} = useParams();
    
+    const [state, setState] = useState({title: '', movies: []})
 
     useEffect(() => {
         // TODO: запрос к сервер на получение списка
         // TODO: запросы к серверу по всем imdbID
-    })
+        fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`).then(res => { return res.json()}).then(data => {
+            setState(data)
+        })
+    },[id])
+
+    console.log(state)
 
     return (
         <div className="list-page">
-            <h1 className="list-page__title">Мой список</h1>
+            <h1 className="list-page__title">{state.title}</h1>
             <ul>
                 {state.movies.map((item) => {
                     return (
                         <li key={item.imdbID}>
-                            <a href="https://www.imdb.com/title/tt0068646/" target="_blank">{item.title} ({item.year})</a>
+                            <a href={`https://www.imdb.com/title/${item.imdbID}`} target="_blank">{item.Title} ({item.Year})</a>
                         </li>
                     );
                 })}
