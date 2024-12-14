@@ -1,12 +1,15 @@
-.list-page {
-    padding: 42px calc(50% - 300px);
-}
-
 .list-page__title {
+    padding: 15px calc(50% - 300px);
     font-size: 34px;
     margin-bottom: 26px;
+    background: #496DDB;
+    color: white;
+    font-family: 'Luckiest Guy', cursive;
+    color: #FFEEDB;
+    font-size: 45px;
 }
 
 .list-page ul li {
+    padding: 5px calc(50% - 300px);
     font-size: 18px;
 }

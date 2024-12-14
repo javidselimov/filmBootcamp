@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   movies: [],
   filtered: [],
-  imdbIDValue: [],
   title: '',
   favouriteMovies: [],
 };
@@ -17,9 +16,6 @@ export const moviesSlice = createSlice({
     },
     setFiltered: (state, action) => {
         state.filtered = action.payload;
-    },
-    setImdbIDValue: (state, action) => {
-        state.imdbIDValue = action.payload;
     },
     setTitle: (state, action) => {
         state.title = action.payload;
@@ -38,6 +34,6 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { setMovies, setFiltered, setImdbIDValue, setTitle, setFavorites, addFavoriteMovie, removeFavoriteMovie } = moviesSlice.actions;
+export const { setMovies, setFiltered, setTitle, setFavorites, addFavoriteMovie, removeFavoriteMovie } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

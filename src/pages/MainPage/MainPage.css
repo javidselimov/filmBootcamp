@@ -17,3 +17,21 @@
 .main-page__favorites {
     width: 35%;   
 }
+
+@media (max-width: 480px) {
+    .main-page__content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .main-page__main-section {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .main-page__favorites {
+        width: 100%;
+    }
+}

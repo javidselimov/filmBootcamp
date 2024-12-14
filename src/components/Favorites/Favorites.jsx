@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Favorites.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addFavoriteMovie, removeFavoriteMovie, setFavorites, setFiltered, setTitle } from '../../features/moviesSlice';
+import { removeFavoriteMovie, setFavorites, setFiltered, setTitle } from '../../features/moviesSlice';
 
 export default function Favorites() {
     const title = useSelector((state) => state.movies.title);
@@ -9,24 +9,39 @@ export default function Favorites() {
     const [titleInput, setTitleInput] = useState(title);
     const [savedLists, setSavedLists] = useState([]);
     const dispatch = useDispatch();
+    const [error, setError] = useState("");
+
+    let errorMessage = null;
 
     const handleTitleChange = (e) => {
         const value = e.target.value;
         setTitleInput(value);
         dispatch(setTitle(value));
+
+        if (savedLists.some((list) => list.name.toLowerCase() === value.toLowerCase())) {
+            setError("* This is not available");
+        } else {
+            setError("");
+        }
     };
+    
+    if(error){
+        errorMessage =  <p className="errorMessage">{error}</p>;
+    }
 
     const handleRemoveMovie = (imdbID) => {
         dispatch(removeFavoriteMovie(imdbID));
     };
 
     const render = favMovies.map((item) => (
-        <li key={item.imdbID}>
-            {item.title} ({item.year})
-            <button className="favorites__delete-button" onClick={() => handleRemoveMovie(item.imdbID)}>
-                Delete
+        <div key={item.imdbID} className="linkContainer">
+            <li className="favoritesLink">
+                {item.title} ({item.year})
+            </li>
+            <button  className='secondDeleteButton' onClick={() => handleRemoveMovie(item.imdbID)}>
+                X
             </button>
-        </li>
+        </div>
     ));
 
     const handleSaveList = () => {
@@ -59,7 +74,6 @@ export default function Favorites() {
     useEffect(() => {
         const savedListsFromStorage = JSON.parse(localStorage.getItem("savedLists")) || [];
         setSavedLists(savedListsFromStorage);
-        // dispatch(setFavorites([]));
     }, [])
 
     const handleRemoveList = (id) => {
@@ -69,22 +83,23 @@ export default function Favorites() {
     }
 
     const renderLinks = savedLists.map((list) => (
-        <div key={list.id} className="favorites__link-container">
-            <a href={`http://localhost:5173/list/${list.id}`} className="favorites__link">
+        <div key={list.id} className="linkContainer">
+            <a href={`http://localhost:5173/list/${list.id}`} className="favoritesLink">
                 {list.name}
             </a>
-            <button className="favorites__delete-button" onClick={() => handleRemoveList(list.id)}>
-                Delete
+            <button className='secondDeleteButton' onClick={() => handleRemoveList(list.id)}>
+                X
             </button>
         </div>
     ));
 
     return (
         <div className="favorites">
-            <input value={titleInput} className="favorites__name" onChange={handleTitleChange} />
+            <input value={titleInput} className="favorites__name" onChange={handleTitleChange}/>
+            {errorMessage}
             <ul className="favorites__list">{render}</ul>
             <div className="link">
-                <button onClick={handleSaveList} disabled={!titleInput.trim()} type="button" className="favorites__save">
+                <button onClick={handleSaveList} disabled={!titleInput.trim() || !!error} type="button" className="favorites__save">
                     Сохранить список
                 </button>
                 <hr />

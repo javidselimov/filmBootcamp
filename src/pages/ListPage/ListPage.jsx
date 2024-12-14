@@ -1,12 +1,13 @@
 import React, { Component, useEffect, useState } from 'react';
 import './ListPage.css';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 export default function ListPage() {
     const [state, setState] = useState({
         movies: []
     })
+
+    const [title, setTitle] = useState("");
     
     const { id } = useParams();
     useEffect(() => {
@@ -15,12 +16,13 @@ export default function ListPage() {
             .then((response) => response.json())
             .then((data) => {
                 setState({movies: data.movies});
+                setTitle(data.title);
             })
         }
     }, [id])
   return (
     <div className="list-page">
-        <h1 className="list-page__title">Мой список</h1>
+        <h1 className="list-page__title">{title}</h1>
         <ul>
             {state.movies.map((item) => {
                 return (

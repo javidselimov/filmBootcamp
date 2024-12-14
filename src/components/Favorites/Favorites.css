@@ -2,6 +2,7 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 8, 7);
     padding: 30px 20px;
+    margin-right: 40px;
 }
 
 .favorites__name {
@@ -10,7 +11,7 @@
     font-size: 16px;
     padding: 5px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
-    margin-bottom: 24px;
+    margin-bottom: 10px;
 }
 
 .favorites__list {
@@ -54,4 +55,56 @@
 .link {
     display: flex;
     flex-direction: column;
+}
+
+.secondDeleteButton {
+    border-radius: 100%;
+    background-color: red;
+    border: none;
+    color: white;
+    width: 20px;
+    height: 20px;
+}
+
+.secondDeleteButton:hover {
+    background-color: crimson;
+}
+
+.favoritesLink {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.linkContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+    .favorites {
+        padding: 15px;
+        margin-right: 40px;
+    }
+    .favorites__name {
+        font-size: 14px;
+    }
+    .favorites__save {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorites {
+        padding: 10px;
+        margin-right: 0px;
+    }
 }

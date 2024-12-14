@@ -41,7 +41,7 @@ export default function SearchBox() {
         .then((response) => response.json())
         .then((data) => {
             const filteredMovies = data.Search.filter((element) =>
-                element.Title.includes(searchLine)
+                element.Title.toLowerCase().includes(searchLine.toLowerCase())
             );
             dispatch(setMovies(data.Search));
             dispatch(setFiltered(filteredMovies));

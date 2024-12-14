@@ -1,6 +1,5 @@
 import React, { Component, useEffect } from 'react';
 import './MovieItem.css';
-import Favorites from '../Favorites/Favorites';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFavoriteMovie } from '../../features/moviesSlice';
 
