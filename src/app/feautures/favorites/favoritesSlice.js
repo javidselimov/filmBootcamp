@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initial = {
-    title: "New list",
+    title: "My favorites",
     movies: [
         { imdbID: 'tt0068646', Title: 'The Godfather', Year: 1973 }
     ]
@@ -19,10 +19,14 @@ const favoritesSlice = createSlice({
         },
         deleteMovie: (state, action) => {
             state.movies = [...action.payload]
+        },
+        resetMovie:(state)=>{
+            state.title = 'My favorites';
+            state.movies = []
         }
     },
 });
 
-export const { setTitle, saveMovie, deleteMovie } = favoritesSlice.actions;
+export const { setTitle, saveMovie, deleteMovie, resetMovie } = favoritesSlice.actions;
 export default favoritesSlice.reducer;
 
