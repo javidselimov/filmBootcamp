@@ -1,0 +1,9 @@
+# Node.js üçün
+node_modules/
+.env
+dist/
+*.log
+
+# OS-ə aid fayllar
+.DS_Store
+Thumbs.db
