@@ -1,6 +1,10 @@
 .header {
     background: #496DDB;
     padding: 20px calc(50% - 500px) 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: padding 0.3s ease-in-out;
 }
 
 .header__title {
@@ -8,4 +12,38 @@
     color: #FFEEDB;
     font-size: 45px;
     margin-left: 40px;
+    transition: font-size 0.3s ease, margin-left 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+    .header {
+        padding: 20px 50px 10px;
+    }
+
+    .header__title {
+        font-size: 40px;
+        margin-left: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 20px 10px;
+    }
+
+    .header__title {
+        font-size: 30px;
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px 15px 10px;
+    }
+
+    .header__title {
+        font-size: 26px;
+        margin-left: 5px;
+    }
 }
