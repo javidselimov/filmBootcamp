@@ -16,7 +16,7 @@ const SearchBox = () => {
 	const searchBoxSubmitHandler = (e) => {
 		e.preventDefault();
 		dispatch(fetchMoviesList(searchLine));
-		// dispatch(clearMovies());
+		dispatch(clearMovies());
 	};
 
 	return (
