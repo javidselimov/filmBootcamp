@@ -18,7 +18,6 @@ const ListPage = (props) => {
         })
     },[id])
 
-    console.log(state)
 
     return (
         <div className="list-page">

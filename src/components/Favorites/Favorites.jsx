@@ -52,17 +52,17 @@ const Favorites = () => {
             <input value={favorites.title} onChange={(e) => handleTitleChange(e)} className="favorites__name" />
             <ul className="favorites__list">
                 {favorites.movies.map((item) => {
-                    return <>
+                    return <div key={item.imdbID}>
                         <li key={item.imdbID}>{item.Title} ({item.Year})</li>
                         <button onClick={() => deleteMovie(item.imdbID)}>Delete</button>
-                    </>;
+                    </div>;
                 })}
             </ul>
             <button type="button" className="favorites__save" onClick={() => saveMovieList()}>Сохранить список</button>
-            {list.list.length ? <div className='favorites-list'>
-                <ul>
+            {list.list.length > 0 ? <div className='favorites-list'>
+                <ul key={list.id}>
                     {list.list.map((item) => {
-                       return <li><a href={`/list/${item.id}`} target='_blank'>{item.title}</a></li>
+                       return <li key={item.id}><a href={`/list/${item.id}`} target='_blank'>{item.title}</a></li>
                     })}
                 </ul>
             </div> : <></>}
