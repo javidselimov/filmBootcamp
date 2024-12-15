@@ -2,6 +2,7 @@
 	box-sizing: border-box;
 	border: 1px solid rgba(0, 8, 7);
 	padding: 30px 20px;
+	width: 450px;
 }
 
 .favorites__name {
@@ -14,6 +15,7 @@
 }
 
 .favorites__list {
+	width: 100%;
 	margin-bottom: 24px;
 }
 
@@ -33,10 +35,25 @@
 }
 
 .deleteButton {
-	color: red;
+	color: #fff;
 	border: none;
+	margin-left: 15px;
+	background-color: #ff0000;
+	border-radius: 100%;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.created-list{
+	margin-top: 10px;
+}
+.block{
+    display: block;
+}
+.error{
+	color: red;
 	font-weight: 900;
-	margin-left: 10px;
-	background-color: #fff;
-	font-size: 20px;
+	margin-bottom: 5px;
 }
