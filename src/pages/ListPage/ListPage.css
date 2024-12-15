@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+.list-page {
+    padding: 42px calc(50% - 300px);
+}
+>>>>>>> 5aaa1fab40d24dd35e8b454a0e12857b36ace822
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
@@ -6,7 +12,6 @@
     color: #333;
     transition: font-size 0.3s ease;
 }
-
 .list-page ul li {
     font-size: 18px;
     display: flex;

@@ -7,14 +7,12 @@
     width: 100%;
 
 }
-
 .search-box__form-label {
     font-size: 14px;
     margin-right: 15px;
     font-weight: bold;
     color: #444;
 }
-
 .search-box__form-input {
     box-sizing: border-box;
     display: block;
@@ -37,7 +35,6 @@
     box-shadow: 0 0 10px rgba(73, 109, 219, 0.3);
     background-color: #fff;
 }
-
 .search-box__form-submit {
     padding: 10px 20px;
     border: none;
@@ -50,13 +47,11 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
 .search-box__form-submit:hover:not(:disabled) {
     background-color: #3a58b8;
     opacity: 0.9;
     transform: translateY(-2px);
 }
-
 .search-box__form-submit:disabled {
     background-color: #ccc;
     cursor: not-allowed;

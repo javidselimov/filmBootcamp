@@ -48,7 +48,6 @@
 .movies__item {
     animation: fadeIn 0.3s ease-in-out;
 }
-
 .movie-item__poster {
     width: 100%;
     height: auto;
@@ -61,7 +60,6 @@
 .movie-item__poster:hover {
     transform: scale(1.05);
 }
-
 .movie-item__title {
     font-size: 18px;
     font-weight: bold;
@@ -70,9 +68,14 @@
     color: #333;
     line-height: 1.2;
 }
+<<<<<<< HEAD
 
 .movie-item__add-button,
 .movie-item__remove-button {
+=======
+.movie-item__add-button {
+    border: none;
+>>>>>>> 5aaa1fab40d24dd35e8b454a0e12857b36ace822
     background-color: #496DDB;
     padding: 8px 12px;
     color: #FFEEDB;
@@ -85,6 +88,7 @@
     width: 100%;
     text-align: center;
 }
+<<<<<<< HEAD
 
 .movie-item__add-button:hover,
 .movie-item__remove-button:hover {
@@ -153,4 +157,10 @@
     .movie-item__remove-button {
         font-size: 12px;
     }
+=======
+.movie-item__add-button:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    transition: all 0.2s linear;
+>>>>>>> 5aaa1fab40d24dd35e8b454a0e12857b36ace822
 }

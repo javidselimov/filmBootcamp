@@ -7,7 +7,6 @@
     width: auto;
     margin: 0;
 }
-
 .favorites__name {
     box-sizing: border-box;
     width: 100%;
@@ -29,13 +28,11 @@
 .favorites__name::placeholder {
     color: #888;
 }
-
 .favorites__list {
     margin-bottom: 24px;
     list-style-type: none;
     padding-left: 0;
 }
-
 .favorites__save {
     border: none;
     background-color: #496DDB;
@@ -47,7 +44,6 @@
     width: 100%;
     transition: background-color 0.3s ease;
 }
-
 .favorites__save:hover {
     background-color: #3a58b8;
 }

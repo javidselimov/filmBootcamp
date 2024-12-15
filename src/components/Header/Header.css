@@ -6,7 +6,6 @@
     justify-content: flex-start;
     transition: padding 0.3s ease-in-out;
 }
-
 .header__title {
     font-family: 'Luckiest Guy', cursive;
     color: #FFEEDB;

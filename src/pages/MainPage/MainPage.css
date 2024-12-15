@@ -6,7 +6,6 @@
     gap: 30px;
     transition: padding 0.3s ease; 
 }
-
 .main-page__main-section {
     padding-left: 40px;
     box-sizing: border-box;
@@ -20,7 +19,6 @@
 .main-page__main-section:hover {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); 
 }
-
 .main-page__search-box {
     margin-bottom: 35px;
     background-color: #ffffff; 
@@ -33,7 +31,6 @@
 .main-page__search-box:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 .main-page__favorites {
     width: 35%;
     background-color: #ffffff;
