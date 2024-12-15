@@ -1,5 +1,16 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app{
+    margin-top: 40px;
+}
 .list-page {
     padding: 42px calc(50% - 300px);
+    width: 500px;
+    padding: 20px;
+    background-color: #FFEEDB;
 }
 
 .list-page__title {
@@ -9,4 +20,18 @@
 
 .list-page ul li {
     font-size: 18px;
+}
+.loading {
+    font-size: 18px;
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+.movie-list-page {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+.movie-list-page:last-child {
+    border-bottom: none;
 }

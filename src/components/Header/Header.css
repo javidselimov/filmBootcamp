@@ -9,3 +9,27 @@
     font-size: 45px;
     margin-left: 40px;
 }
+.header {
+    background-color: #343a40;
+    padding: 10px;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__link {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.header__link:hover {
+    background-color: #495057;
+}
+

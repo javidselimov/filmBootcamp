@@ -16,7 +16,19 @@
 .favorites__list {
     margin-bottom: 24px;
 }
-
+.delete{
+    margin-left: 8px;
+    margin-bottom: 15px;
+}
+.delete:hover{
+    background-color: #496DDB;
+    color: #ffffff;
+    transition: 0.2s;
+}
+li{
+    display: flex;
+    
+}
 .favorites__save {
     border: none;
     background-color: #496DDB;
@@ -24,10 +36,41 @@
     color: #FFEEDB;
     font-size: 14px;
     transition: all 0.2s linear;
+    margin-bottom: 24px;
 }
-
+.grey{
+    margin-right: 10px;
+}
+.grey:hover,.rightgrey:hover{
+    background-color: #496DDB;
+    color: #ffffff;
+    transition: 0.2s;
+}
 .favorites__save:hover {
     cursor: pointer;
     opacity: 0.9;
     transition: all 0.2s linear;
+}
+.save-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.save-button:hover {
+    background-color: #0056b3;
+}
+.generated-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 10px;
+    display: inline-block;
+}
+.generated-link:hover {
+    color: #0056b3;
 }
