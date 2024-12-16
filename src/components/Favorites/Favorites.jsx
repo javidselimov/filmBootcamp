@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './Favorites.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFavoriteMovie, setFavorites, setFiltered, setTitle } from '../../features/moviesSlice';
+import { removeFavoriteMovie, setFavorites, setTitle } from '../../features/moviesSlice';
 
 export default function Favorites() {
     const title = useSelector((state) => state.movies.title);
@@ -28,7 +28,7 @@ export default function Favorites() {
     if(error){
         errorMessage =  <p className="errorMessage">{error}</p>;
     }
-
+    
     const handleRemoveMovie = (imdbID) => {
         dispatch(removeFavoriteMovie(imdbID));
     };
