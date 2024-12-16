@@ -1,33 +1,116 @@
 .favorites {
     box-sizing: border-box;
-    border: 1px solid rgba(0, 8, 7);
+    border: 1px solid rgba(0, 8, 7, 0.3);
     padding: 30px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: auto;
+    margin: 0;
 }
-
 .favorites__name {
     box-sizing: border-box;
     width: 100%;
     font-size: 16px;
-    padding: 5px 10px;
-    border: 1px solid rgba(0, 8, 7, .5);
+    padding: 10px 15px;
+    border: 1px solid rgba(0, 8, 7, 0.5);
     margin-bottom: 24px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    color: #333;
+    transition: background-color 0.3s ease;
 }
 
+.favorites__name:focus {
+    outline: none;
+    background-color: white;
+}
+
+.favorites__name::placeholder {
+    color: #888;
+}
 .favorites__list {
     margin-bottom: 24px;
+    list-style-type: none;
+    padding-left: 0;
 }
-
 .favorites__save {
     border: none;
     background-color: #496DDB;
     padding: 10px 15px;
     color: #FFEEDB;
     font-size: 14px;
-    transition: all 0.2s linear;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+.favorites__save:hover {
+    background-color: #3a58b8;
 }
 
-.favorites__save:hover {
+.favorites__save:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.favorites__remove {
+    background-color: #FF4747;
+    padding: 8px 12px;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
     cursor: pointer;
-    opacity: 0.9;
-    transition: all 0.2s linear;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.favorites__remove:hover {
+    background-color: #FF2A2A;
+}
+
+.favorites__remove:focus {
+    outline: none;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item button {
+    background-color: #FF4747;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.list-item button:hover {
+    background-color: #FF2A2A;
+}
+
+@media (max-width: 768px) {
+    .favorites {
+        padding: 20px 15px;
+    }
+
+    .favorites__name {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .favorites__save {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .favorites__remove {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
 }

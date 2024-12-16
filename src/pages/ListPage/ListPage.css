@@ -1,12 +1,117 @@
+<<<<<<< HEAD
+=======
 .list-page {
     padding: 42px calc(50% - 300px);
 }
-
+>>>>>>> 5aaa1fab40d24dd35e8b454a0e12857b36ace822
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
+    align-items: center;
+    font-weight: 600; 
+    color: #333;
+    transition: font-size 0.3s ease;
 }
-
 .list-page ul li {
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.movie-item__link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.movie-item__link:hover {
+    color: #496DDB; 
+}
+
+.movie-item__image {
+    width: 80px;
+    height: 120px;
+    margin-right: 15px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.movie-item__image:hover {
+    transform: scale(1.05); 
+}
+
+.movie-item__details {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-item__remove-button {
+    background-color: #FF4747;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.movie-item__remove-button:hover {
+    background-color: #FF2A2A;
+}
+
+@media (max-width: 768px) {
+    .list-page__title {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px; 
+    }
+
+    .list-page ul li {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px; 
+    }
+
+    .movie-item__image {
+        width: 60px;
+        height: 90px;
+        margin-right: 10px;
+    }
+
+    .movie-item__remove-button {
+        padding: 4px 8px;
+        font-size: 12px;
+        width: 100%; 
+    }
+
+    .movie-item__remove-button:hover {
+        background-color: #FF2A2A;
+    }
+}
+
+@media (max-width: 480px) {
+    .list-page__title {
+        font-size: 24px; 
+    }
+
+    .list-page ul li {
+        font-size: 14px; 
+    }
+
+    .movie-item__image {
+        width: 50px; 
+        height: 75px;
+    }
+
+    .movie-item__remove-button {
+        padding: 6px 10px;
+        font-size: 14px; 
+    }
 }
