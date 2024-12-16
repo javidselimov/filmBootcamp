@@ -11,7 +11,6 @@ export const fetchMoviesList = createAsyncThunk(
 			const query = searchLine.startsWith('tt')
 				? `i=${searchLine}`
 				: `s=${searchLine}`;
-			console.log(query);
 			const response = await fetch(`${BASE_URL}?${query}&apikey=${API_KEY}`);
 			const data = await response.json();
 			if (!response.ok) {

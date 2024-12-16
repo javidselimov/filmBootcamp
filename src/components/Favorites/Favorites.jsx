@@ -45,6 +45,10 @@ const Favorites = () => {
 		setItemType(null);
 	};
 
+	useEffect(() => {
+		setInputValue('Новый список');
+	}, [dispatch]);
+
 	const createList = async () => {
 		const trimmedInput = inputValue.trim();
 		const movieTitles = movies.map((movie) => movie.title);
@@ -52,65 +56,74 @@ const Favorites = () => {
 		setErrorVisibility(false);
 		setError('');
 
-		if (
-			trimmedInput &&
-			!createdList.some((list) => list.title === trimmedInput)
-		) {
-			const duplicateList = createdList.some((list) => {
-				const listMovieTitles = list.movies.map((movie) => movie.title);
-				return (
-					JSON.stringify(listMovieTitles.sort()) ===
-					JSON.stringify(movieTitles.sort())
-				);
-			});
-
-			if (duplicateList) {
-				setErrorVisibility(true);
-				setError('A list with the same movies already exists!');
-				return;
-			}
-
-			try {
-				const response = await fetch(
-					'https://acb-api.algoritmika.org/api/movies/list',
-					{
-						method: 'POST',
-						headers: {
-							'Content-type': 'application/json',
-						},
-						body: JSON.stringify({
-							title: trimmedInput,
-							movies: movies.map((movie) => ({
-								imdbID: movie.imdbID,
-								title: movie.title,
-								year: movie.year,
-							})),
-						}),
-					}
-				);
-				const data = await response.json();
-
-				if (data.id) {
-					dispatch(
-						addToCreatedList({
-							title: trimmedInput,
-							id: data.id,
-							movies: movies,
-						})
-					);
-					setInputValue('');
-					setErrorVisibility(false);
-				} else {
-					setErrorVisibility(true);
-					setError('Failed to save the list');
-				}
-			} catch (error) {
-				setErrorVisibility(true);
-				setError('Error saving the list');
-			}
-		} else {
+		if (!trimmedInput) {
 			setErrorVisibility(true);
-			setError('The movie list name is either empty or already exists!');
+			setError('The movie list name cannot be empty!');
+			return;
+		}
+
+		if (movies.length === 0) {
+			setErrorVisibility(true);
+			setError('The movie list cannot be empty!');
+			return;
+		}
+
+		if (createdList.some((list) => list.title === trimmedInput)) {
+			setErrorVisibility(true);
+			setError('A list with the same name already exists!');
+			return;
+		}
+
+		const duplicateList = createdList.some((list) => {
+			const listMovieTitles = list.movies.map((movie) => movie.title);
+			return (
+				JSON.stringify(listMovieTitles.sort()) ===
+				JSON.stringify(movieTitles.sort())
+			);
+		});
+
+		if (duplicateList) {
+			setErrorVisibility(true);
+			setError('A list with the same movies already exists!');
+			return;
+		}
+
+		try {
+			const response = await fetch(
+				'https://acb-api.algoritmika.org/api/movies/list',
+				{
+					method: 'POST',
+					headers: {
+						'Content-type': 'application/json',
+					},
+					body: JSON.stringify({
+						title: trimmedInput,
+						movies: movies.map((movie) => ({
+							imdbID: movie.imdbID,
+							title: movie.title,
+						})),
+					}),
+				}
+			);
+			const data = await response.json();
+
+			if (data.id) {
+				dispatch(
+					addToCreatedList({
+						title: trimmedInput,
+						id: data.id,
+						movies: movies,
+					})
+				);
+				setInputValue('Новый список');
+				setErrorVisibility(false);
+			} else {
+				setErrorVisibility(true);
+				setError('Failed to save the list');
+			}
+		} catch (error) {
+			setErrorVisibility(true);
+			setError('Error saving the list');
 		}
 	};
 
@@ -150,7 +163,9 @@ const Favorites = () => {
 				<ul>
 					{createdList.map((list) => (
 						<li key={list.id}>
-							<Link to={`/list/${list.id}`} target='_blank'>{list.title}</Link>
+							<Link to={`/list/${list.id}`} target="_blank">
+								{list.title}
+							</Link>
 							<button
 								type="submit"
 								className="deleteButton"
@@ -165,7 +180,7 @@ const Favorites = () => {
 
 			{popUpVisible && (
 				<PopUp
-					message={`Are you sure you want to delete "${itemToDelete?.title}"?`}
+					message={`Are you sure you want to delete \"${itemToDelete?.title}\"?`}
 					onConfirm={handleConfirmDelete}
 					onCancel={handleCancelDelete}
 					type={itemType}
