@@ -15,5 +15,28 @@
 }
 
 .main-page__favorites {
-    width: 35%;   
+    width: 50%;   
+}
+
+@media only screen and (max-width:768px){
+    .main-page__content {
+        padding: 42px calc(50% - 500px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .main-page__main-section {
+        padding-left: 40px;
+        box-sizing: border-box;
+        width: 80%;
+    }
+    
+    .main-page__search-box {
+        margin-bottom: 35px;
+    }
+    
+    .main-page__favorites {
+        width: 90%;   
+    }
 }
