@@ -1,12 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
 .list-page {
     padding: 42px calc(50% - 300px);
+    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
 }
 
 .list-page__title {
     font-size: 34px;
     margin-bottom: 26px;
+    font-weight: 900;
+    color: #fff;
 }
 
 .list-page ul li {
     font-size: 18px;
+}
+
+.favorites-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #bdc3c7;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 40%;
+}
+
+.item_poster{
+    width: 200px;
+}
+
+.film-name{
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
 }

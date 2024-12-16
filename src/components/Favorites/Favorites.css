@@ -24,10 +24,57 @@
     color: #FFEEDB;
     font-size: 14px;
     transition: all 0.2s linear;
+    border-radius: 5px;
 }
 
 .favorites__save:hover {
     cursor: pointer;
     opacity: 0.9;
     transition: all 0.2s linear;
+}
+
+.favorites-list{
+    margin-top: 5%;
+}
+
+.favorites-list ul li{
+    margin-top: 1%;
+
+}
+
+.favorites-list ul li a{
+    padding: 5px;
+    cursor: pointer;
+    background: #F8FAFC;
+    border-radius: 5px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    width: auto;
+
+    text-decoration: none;
+    color: gray;
+    font-weight: 900;
+    font-family: monospace, sans-serif;
+    font-size: 16px;
+}
+
+.delete-item-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+
+    color: #fff;
+    background-color: #D9544D;
+}
+
+.favorite-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2%;
 }
