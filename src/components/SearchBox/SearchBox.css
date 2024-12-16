@@ -39,3 +39,18 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+@media only screen and (max-width:768px){
+.search-box__form {
+    display: flex;
+    flex-direction: column;
+}
+.search-box__form-input {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    font-size: 14px;
+    padding: 5px 10px;
+    border: 1px solid rgba(0, 8, 7, .5);
+}
+}
