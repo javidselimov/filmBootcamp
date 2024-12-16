@@ -17,7 +17,7 @@ The application allows users to:
 1. Fork this repository to your GitHub account.
 2. Clone the forked repository:
    ```bash
-   git clone <your-forked-repo-url>
+   git clone <https://github.com/ElshanAlasgarov/filmBootcamp>
    ```
 3. Navigate to the project directory:
    ```bash
