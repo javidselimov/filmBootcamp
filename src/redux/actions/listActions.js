@@ -9,7 +9,7 @@ export const addToList = (movie) => ({
   });
   
   export const saveList = (list) => ({
-    type: 'SAVE_LIST',
+    type: 'SAVE_LI+ST',
     payload: list,
   });
   
