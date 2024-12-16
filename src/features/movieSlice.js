@@ -4,7 +4,6 @@ const initialState = {
     movies: [],
     filtered: [],
     listItem: [],
-    savedId: null,
 };
 
 const movieSlice = createSlice({
