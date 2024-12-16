@@ -1,30 +1,78 @@
-import  {  useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Favorites.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromList } from '../../features/movieSlice';
+import { removeFromList, saveList } from '../../features/movieSlice';
 
-export default function Favorites(){
-   const [state,setState] =  useState({
-        title: 'Новый список',
-        movies: [
-            { imdbID: 'tt0068646', title: 'The Godfather', year: 1972 }
-        ]
-    })
-    const movies =useSelector((state)=>state.movies.movies);
-    const dispatch=useDispatch();
+export default function Favorites() {
+    const listItem = useSelector((state) => state.movies.listItem);
+    const [savedLists, setSavedLists] = useState([]);
+    const [listName, setListName] = useState('');
+    const dispatch = useDispatch();
+    const api = 'https://acb-api.algoritmika.org/api/movies/list'
 
-     const handleRemoving=(imdbID)=>{
-                dispatch(removeFromList(imdbID));
-        }
-        return (
-            <div className="favorites">
-                <input value="Новый список" className="favorites__name" />
-                <ul className="favorites__list">
-                    {state.movies.map((item) => {
-                        return <li key={item.imdbID}>{item.title} ({item.year}) <button onClick={()=>handleRemoving(item.imdbID)}>Delete</button></li>;
-                    })}
-                </ul>
-                <button type="button" className="favorites__save">Сохранить список</button>
-            </div>
-        );
+    const handleInputChange = (e) => {
+        setListName(e.target.value);
     }
+    const handleRemoving = (imdbID) => {
+        dispatch(removeFromList(imdbID));
+    }
+    const handleSaving = () => {
+        const film = {
+            title: listName,
+            movies: listItem,
+        };
+        fetch(`${api}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(film),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                const savedListsFromStorage = JSON.parse(localStorage.getItem('savedLists')) || [];
+                savedListsFromStorage.push({ id: data.id, name: listName });
+                localStorage.setItem('savedLists', JSON.stringify(savedListsFromStorage));
+
+                setSavedLists(savedListsFromStorage);
+                dispatch(saveList(data.id));
+                setListName('');
+            })
+            .catch((error) => console.log('Error:', error));
+    };
+    console.log("lsititem", listItem)
+    useEffect(() => {
+        const savedListsFromStorage = JSON.parse(localStorage.getItem('savedLists')) || [];
+        setSavedLists(savedListsFromStorage);
+    }, []);
+
+    const handleRemoveListsName = () => {
+        localStorage.removeItem('savedLists');
+        setSavedLists([]);
+    }
+
+    console.log("save olunmus list", savedLists)
+
+    return (
+        <div className="favorites">
+            <input value={listName} onChange={handleInputChange} className="favorites__name" placeholder='Enter a list name' />
+            <ul className="favorites__list">
+                {listItem.map((item) => {
+                    return <li key={item.imdbID}>{item.title} ({item.year}) <button className="favorites__delete" onClick={() => handleRemoving(item.imdbID)}>Delete</button></li>;
+                })}
+            </ul>
+            <button onClick={handleSaving} type="button" disabled={!listName} className="favorites__save">Сохранить список</button>
+            <hr />
+            <button className="favorites__remove" onClick={handleRemoveListsName}>Clear</button>
+            <div className='lists'>
+                <ul>
+                    {savedLists.map((item) => (
+                        <li key={item.id}>
+                            <a href={`http://localhost:5173/list/${item.id}`}>{item.name}</a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
+    );
+}

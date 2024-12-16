@@ -1,12 +1,70 @@
-.list-page {
-    padding: 42px calc(50% - 300px);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ .list-page {
+    background-image: url("https://static.vecteezy.com/system/resources/previews/043/555/242/non_2x/realistic-3d-cinema-film-strip-in-perspective-isolated-on-blue-background-template-cinema-festival-movie-design-cinema-film-strip-for-ad-poster-presentation-show-brochure-banner-or-flyer-vector.jpg");
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding-top: 40px;
+}
+
+.container {
+    background-color: rgb(236, 197, 146);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .list-page__title {
-    font-size: 34px;
-    margin-bottom: 26px;
+    font-size: 36px;
+    margin-bottom: 20px;
+    background-color: rgb(171, 28, 56);
+    color: blanchedalmond;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list-page ul {
+    list-style: none;
+    width: 100%;
+    text-align: left;
+    padding: 0;
 }
 
 .list-page ul li {
     font-size: 18px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.list-page ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.list-page ul li a {
+    color: rgb(171, 28, 56);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.list-page ul li a:hover {
+    text-decoration: underline;
+    color: rgb(128, 6, 31);
 }

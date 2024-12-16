@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
 import './MovieItem.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addTolist } from '../../features/movieSlice';
 
-export default function MovieItem({ title, year, poster }) {
-    const [newMovie, setNewMovie]=useState({title, year});
-    const dispatch=useDispatch();
-    const handleAdding=()=>{
-        console.log({title, year})
-        if (newMovie){
-            dispatch(addTolist(newMovie));
-            setNewMovie("");
+export default function MovieItem({ title, year, poster,imdbID }) {
+    const listItem = useSelector((state) => state.movies.listItem);
+        const dispatch=useDispatch();
+
+    const handleAdding = () => {
+        let checking = false;
+    
+        for (let i = 0; i < listItem.length; i++) {
+            if (listItem[i].imdbID === imdbID) {
+                checking = true;
+                break; 
+            }
         }
-    }
+    
+        if (checking) {
+            alert('Bu filmi liste elave etmisiniz');
+        } else {
+            console.log({ title, year, imdbID });
+            dispatch(addTolist({ title, year, imdbID }));
+        }
+    };
+
         return (
             <article className="movie-item">
                 <img className="movie-item__poster" src={poster} alt={title} />
