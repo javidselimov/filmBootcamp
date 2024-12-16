@@ -1,12 +1,40 @@
-.list-page {
-    padding: 42px calc(50% - 300px);
-}
-
 .list-page__title {
-    font-size: 34px;
-    margin-bottom: 26px;
+    padding: 15px;
+    background: #496DDB;
+    font-family: 'Luckiest Guy', cursive;
+    color: antiquewhite;
+    font-size: 45px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.list-page ul li {
+.list-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.list-page li {
+    padding: 10px;
     font-size: 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.list-page li a {
+    text-decoration: none;
+    color: #496DDB;
+    font-weight: bold;
+}
+
+.list-page li:hover {
+    background-color: whitesmoke;
+}
+
+.list-page li a:hover {
+    color: mediumblue;
 }
