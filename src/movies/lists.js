@@ -2,8 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const API_URL = "https://acb-api.algoritmika.org/api/movies/list";
 
-export const addToList = createAsyncThunk(
-  "lists/addToList",
+export const saveList = createAsyncThunk(
+  "lists/saveList",
   async (updatedList, thunkAPI) => {
     try {
       const response = await fetch(API_URL, {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Favorites.css";
 import { Link } from "react-router-dom";
-import { addToList } from "../../movies/lists";
+import { saveList } from "../../movies/lists";
 import { getList } from "../../movies/lists";
 import { clearList, deleteFromList } from "../../redux/slices/listSlice";
 import { deleteList } from "../../redux/slices/listsSlice";
@@ -61,7 +61,7 @@ const Favorites = () => {
       movies: list.movies.map((movie) => movie.imdbID),
     };
 
-    dispatch(addToList(updatedList)).then((response) => {
+    dispatch(saveList(updatedList)).then((response) => {
       if (response.payload && response.payload.id) {
         dispatch(getList(response.payload.id));
       }

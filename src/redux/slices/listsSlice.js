@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addToList, getList } from "../../movies/lists";
+import { getList, saveList } from "../../movies/lists";
 
 const listsSlice = createSlice({
   name: "lists",
@@ -18,7 +18,7 @@ const listsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(addToList.fulfilled, (state, action) => {
+      .addCase(saveList.fulfilled, (state, action) => {
         const existingIndex = state.lists.findIndex(
           (list) => list.id === action.payload.id
         );
