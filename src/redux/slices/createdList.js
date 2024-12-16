@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchCreatedList = createAsyncThunk(
 	'created/fetchCreatedList',
-	async () => {
+	async (id) => {
 		const response = await fetch(
-			'https://acb-api.algoritmika.org/api/movies/list',
+			`https://acb-api.algoritmika.org/api/movies/list/${id}`,
 			{
 				method: 'GET',
 				headers: {
@@ -41,9 +41,17 @@ const createdList = createSlice({
 				state.error = null;
 			})
 			.addCase(fetchCreatedList.fulfilled, (state, action) => {
-				state.lists = action.payload;
+				const existingListIndex = state.lists.findIndex(
+					(list) => list.id === action.payload.id
+				);
+				if (existingListIndex !== -1) {
+					state.lists[existingListIndex] = action.payload;
+				} else {
+					state.lists.push(action.payload);
+				}
 				state.loading = false;
 			})
+
 			.addCase(fetchCreatedList.rejected, (state, action) => {
 				state.loading = false;
 				state.error = action.error.message;

@@ -1,10 +1,9 @@
 import MovieItem from '../MovieItem/MovieItem';
 import './Movies.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const Movies = () => {
-	const { movies, loading, error } = useSelector((state) => state.movies);
-	// console.log(movies);
+	const { movies } = useSelector((state) => state.movies);
 	return (
 		<div className="movies-div-container">
 			<ul className="movies">
