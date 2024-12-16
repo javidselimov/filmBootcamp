@@ -7,15 +7,13 @@ const Movies = () => {
 	return (
 		<div className="movies-div-container">
 			<ul className="movies">
-				{Array.isArray(movies) && movies.length > 0 ? (
-					movies?.map((movie) => (
+				{Array.isArray(movies) &&
+					movies.length > 0 &&
+					movies.map((movie) => (
 						<li className="movies__item" key={movie.imdbID}>
 							<MovieItem {...movie} />
 						</li>
-					))
-				) : (
-					<p>No movies found.</p>
-				)}
+					))}
 			</ul>
 		</div>
 	);
