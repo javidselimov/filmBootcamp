@@ -31,3 +31,14 @@
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+
+
+.remove{
+    background-color: rgb(255, 123, 0);
+    margin-left: 5px;
+}
+.newList{
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: blanchedalmond;
+}
