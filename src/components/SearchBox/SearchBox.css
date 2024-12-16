@@ -1,5 +1,7 @@
 .search-box__form {
     display: flex;
+    gap: 10px;
+    flex-wrap: wrap; 
 }
 
 .search-box__form-label {
@@ -10,12 +12,12 @@
 
 .search-box__form-input {
     box-sizing: border-box;
-    display: block;
     margin-top: 5px;
-    width: 300px;
+    width: 100%;
     font-size: 14px;
     padding: 5px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
+    margin-bottom: 0px;
 }
 
 .search-box__form-submit {
@@ -38,4 +40,15 @@
 .search-box__form-submit:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+@media(width:578px){
+    .search-box__form-input {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .search-box__form-submit {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
 }
