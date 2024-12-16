@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 
 
 
-const ListPage = (props) => {
+const ListPage = () => {
 
     const { id } = useParams();
 

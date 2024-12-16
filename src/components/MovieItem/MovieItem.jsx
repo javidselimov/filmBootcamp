@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+
 import './MovieItem.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveMovie } from '../../app/favorites/favoritesSlice';

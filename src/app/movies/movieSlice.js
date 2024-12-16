@@ -29,7 +29,7 @@ const initialState = {
 
 const movieSlice = createSlice({
     name: "movie",
-    initialState: initialState,
+    initialState,
     reducers: {
         getMovies: (state, action) => {
             state.value = action.payload;

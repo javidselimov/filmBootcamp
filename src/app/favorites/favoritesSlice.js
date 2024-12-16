@@ -2,9 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     title: 'My Favorites',
-    movies: [
-        // { imdbID: 'tt0068646', Title: 'The Godfather', Year: 1972 }
-    ]
+    movies: []
 }
 
 

@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import './SearchBox.css';
-import ListPage from '../../pages/ListPage/ListPage';
-import Movies from '../Movies/Movies';
 import { getMovies } from '../../app/movies/movieSlice';
 import { useDispatch } from 'react-redux';
 
