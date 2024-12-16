@@ -6,17 +6,17 @@ import { useParams } from 'react-router-dom';
 
 const ListPage = (props) => {
 
-    const {id} = useParams();
-   
-    const [state, setState] = useState({title: '', movies: []})
+    const { id } = useParams();
+
+    const [state, setState] = useState({ title: '', movies: [] })
 
     useEffect(() => {
         // TODO: запрос к сервер на получение списка
         // TODO: запросы к серверу по всем imdbID
-        fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`).then(res => { return res.json()}).then(data => {
+        fetch(`https://acb-api.algoritmika.org/api/movies/list/${id}`).then(res => { return res.json() }).then(data => {
             setState(data)
         })
-    },[id])
+    }, [id])
 
 
     return (
@@ -25,8 +25,9 @@ const ListPage = (props) => {
             <ul>
                 {state.movies.map((item) => {
                     return (
-                        <li key={item.imdbID}>
-                            <a href={`https://www.imdb.com/title/${item.imdbID}`} target="_blank">{item.Title} ({item.Year})</a>
+                        <li className="favorites-item" key={item.imdbID}>
+                            <img className="item_poster" src={item.Poster} alt={item.Title} />
+                            <a className="film-name" href={`https://www.imdb.com/title/${item.imdbID}`} target="_blank">{item.Title} ({item.Year})</a>
                         </li>
                     );
                 })}
