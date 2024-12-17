@@ -6,18 +6,30 @@
     display: inline-block;
     font-size: 12px;
     margin-right: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .search-box__form-input {
     box-sizing: border-box;
     display: block;
-    margin-top: 5px;
+    margin-top: -11px;
     width: 300px;
     font-size: 14px;
     padding: 5px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
 }
-
+h4{
+    position: absolute;
+    top: 146px;
+}
+.search:hover{
+    background-color: #496DDB;
+    color: #ffffff;
+    border: 0;
+    transition: 0.2s;
+}
 .search-box__form-submit {
     margin-top: 17px;
     padding: 5px 10px;
