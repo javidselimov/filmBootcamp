@@ -1,3 +1,6 @@
-.movies__item {
-    margin-bottom: 21px;
+
+.movies {
+    display: flex;
+    flex-wrap: wrap;
 }
+
