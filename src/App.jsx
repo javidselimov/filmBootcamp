@@ -1,18 +1,25 @@
 
-import { Route } from 'react-router-dom';
+import { Route,Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import ListPage from './pages/ListPage/ListPage';
 
 import './reset.css';
 import './common.css';
 
+
 const App =()=> {
   
     return (
+      
       <div className="app">
-        <Route path="/" exact component={MainPage} />
-        <Route path="/list/:id" exact component={ListPage} />
+       
+        <Routes>
+          
+        <Route path="/"  element={<MainPage/>}></Route>
+        <Route path="/list/:id" element={<ListPage/>}></Route>
+        </Routes>
       </div>
+      
     );
   
 }

@@ -2,32 +2,123 @@
     box-sizing: border-box;
     border: 1px solid rgba(0, 8, 7);
     padding: 30px 20px;
+    border-radius: 7px;
+    border:2px solid black;
 }
 
 .favorites__name {
     box-sizing: border-box;
     width: 100%;
     font-size: 16px;
-    padding: 5px 10px;
-    border: 1px solid rgba(0, 8, 7, .5);
+    padding: 7px 10px;
+    border: 2px solid rgba(0, 8, 7, .5);
     margin-bottom: 24px;
+    border-radius: 5px;
 }
 
 .favorites__list {
     margin-bottom: 24px;
 }
+.favorites__list li {
+    font-weight: bold;
+}
 
 .favorites__save {
     border: none;
     background-color: #496DDB;
-    padding: 10px 15px;
+    padding: 13px 15px;
     color: #FFEEDB;
     font-size: 14px;
     transition: all 0.2s linear;
+    border-radius: 7px;
 }
 
 .favorites__save:hover {
     cursor: pointer;
     opacity: 0.9;
     transition: all 0.2s linear;
+}
+.remove-favorite-movie {
+    margin-right: 10px;
+    background-color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    padding:9px;
+    margin-top: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .remove-favorite-movie:hover {
+    background-color: #fb490e;
+  }
+
+  .favorites__select-container {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.favorites__select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgba(0, 8, 7, 0.5);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.favorites__select:hover {
+    border-color: #496DDB;
+    background-color: #eef3ff;
+}
+
+.add-to-list,
+.remove-from-list {
+    background-color: #496DDB;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-list:hover,
+.remove-from-list:hover {
+    background-color: #3b5cb5;
+    transform: scale(1.05);
+}
+
+.add-to-list {
+    background-color: #4CAF50;
+}
+
+.add-to-list:hover {
+    background-color: #45a049;
+}
+
+.remove-from-list {
+    background-color: #f44336;
+}
+
+.remove-from-list:hover {
+    background-color: #d32f2f;
+}
+
+.remove-from-list{
+    margin-top: 10px;
+}
+
+.favorites__save{
+    margin-top: 10px;
 }
