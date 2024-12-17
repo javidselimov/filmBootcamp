@@ -16,7 +16,26 @@
 .favorites__list {
     margin-bottom: 24px;
 }
+.favorites__list li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+    color: rgb(34, 0, 148);
+    padding: 8px 0;
+}
 
+.favorites__list li button{
+    flex-shrink: 0;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.favorites__list li button:hover {
+    transition: .6s all;
+    color: #ff0037;
+
+}
 .favorites__save {
     border: none;
     background-color: #496DDB;
@@ -24,10 +43,16 @@
     color: #FFEEDB;
     font-size: 14px;
     transition: all 0.2s linear;
-}
-
-.favorites__save:hover {
     cursor: pointer;
+
+}
+.favorites__save:hover {
     opacity: 0.9;
     transition: all 0.2s linear;
 }
+.favorites__save:disabled{
+pointer-events: none;
+opacity: .3;
+cursor:pointer;
+
+ }
