@@ -2,11 +2,14 @@
     padding: 20px;
     background-color: #FFEEDB;
     display: flex;
+    border-radius: 8px;
+    border:1px solid black;
 }
 
 .movie-item__poster {
     height: 150px;
     margin-right: 21px;
+    border-radius: 6px;
 }
 
 .movie-item__title {
@@ -22,6 +25,7 @@
     color: #FFEEDB;
     font-size: 14px;
     transition: all 0.2s linear;
+    border-radius: 6px;
 }
 
 .movie-item__add-button:hover {

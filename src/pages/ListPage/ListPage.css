@@ -1,12 +1,219 @@
 .list-page {
-    padding: 42px calc(50% - 300px);
-}
+    padding: 0px calc(50% - 300px);
+    width:500px;
+    align-items: center;
+   
+  }
+  
+  .list-page__title {
+    font-size: 40px;
+    margin: 28px 0;
+    text-align: center;
+    font-weight: bold;
+    font-family:cursive;
+    
+  }
+  .info{
+    padding:10px;
+   
+  }
+  
+  .list-page ul {
+    display: grid;
+    place-content: center;
+    gap: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: repeat(3, minmax(450px, 1fr)); */
+    
+    
+  }
+  
+  .list-page ul li {
+    padding: 20px;
+    margin-top: 6px;
+    background-color: #ffeedb;
+    display: flex; 
+    border:1px solid rgb(88, 87, 87);
+    border-radius: 7px;
+    
+    
 
-.list-page__title {
-    font-size: 34px;
-    margin-bottom: 26px;
-}
-
-.list-page ul li {
+    
+  
+  }
+  .list-page__single-movie {
     font-size: 18px;
+    margin-bottom: 30px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  .single-movie__poster {
+    height: 170px;
+    margin-right: 21px;
+    margin-top: 15px;
+    border-radius: 6px;
+  }
+  
+  .list-page__link-imdb {
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(2, 41, 234);
+    font-weight:bold;
+
+   
+  }
+
+  
+  
+  .link-imdb {
+    margin: 5px 0;
+    display: block;
+  }
+  
+  .list-page__details {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(35, 35, 35);
+    font-weight: bold;
+  }
+  .list-page__details-title {
+    width: 160px;
+    font-size: 13px;
+  }
+  
+  .movie-item__about {
+    padding: 10px 0;
+  }
+  
+  .list-page__details-value {
+    font-size: 13px;
+    width: 100%;
+  }
+  
+  .link-to__list {
+    text-decoration: none;
+    color: white;
+  }
+  .movie-item__info-list {
+    display: flex;
+    list-style-type: none;
+    padding: 10px 0 0 0;
+  }
+  
+  #movie-item__info-item {
+    padding: 0;
+  }
+  
+  .info {
+    width: 100%;
+  }
+  .list-page ul li {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .list-page ul li:hover {
+    background-color: #ffe0b3;
+    transform: scale(1.05);
+  }
+  
+
+  /* Для мобильных устройств */
+@media (max-width: 768px) {
+
+  .list-page {
+    padding: 0px 30px; /* Уменьшаем отступы с боков */
+    width: 80%; /* Устанавливаем ширину 100% для мобильных */
+    align-items: center;
+  }
+  
+  .list-page__title {
+    font-size: 28px; /* Уменьшаем размер шрифта */
+    margin: 20px 0;
+    text-align: center;
+    font-weight: bold;
+    font-family: cursive;
+  }
+  
+  /* .info {
+    padding: 8px;
+  } */
+
+  .list-page ul {
+    display: grid;
+    justify-content: center;
+    gap: 16px;
+    grid-template-columns: 1fr; /* Столбец для мобильных */
+    margin: 0; /* Убираем левый отступ */
+  }
+
+  .list-page ul li {
+    padding: 12px;
+    margin-top: 6px;
+    background-color: #ffeedb;
+    display: flex;
+    flex-direction: column; /* Сделать элементы в колонку */
+    border: 1px solid rgb(88, 87, 87);
+    border-radius: 7px;
+    justify-content: center;
+    
+  }
+
+  .single-movie__poster {
+    height: 170px; /* Уменьшаем размер изображения */
+    margin-right: 0; /* Убираем отступ справа */
+    margin-top: 10px; /* Убираем верхний отступ */
+    width: 50%; /* Ширина 100% для мобильных */
+    border-radius: 6px;
+    
+    
+  }
+  
+  .list-page__link-imdb {
+    padding: 8px;
+    text-decoration: none;
+    color: rgb(2, 41, 234);
+    font-weight: bold;
+   
+  }
+
+  .list-page__details {
+    display: block; /* Переход на блочную модель */
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(35, 35, 35);
+    font-weight: bold;
+  }
+
+  .list-page__details-title,
+  .list-page__details-value {
+    font-size: 14px; /* Увеличиваем шрифт для удобства чтения */
+  }
+
+  .list-page__details-title {
+    width: auto; /* Убираем фиксированную ширину */
+    margin-bottom: 6px; /* Добавляем отступ снизу */
+  }
+
+  .list-page__details-value {
+    font-size: 14px;
+    width: auto; /* Убираем фиксированную ширину */
+    margin-bottom: 10px; /* Добавляем отступ снизу */
+  }
+
+  .movie-item__about {
+    padding: 8px 0;
+  }
+
+  .link-imdb {
+    margin-top: 10px; /* Добавляем отступ сверху */
+  }
+
+  .movie-item__info-list {
+    display: block; /* Блочное отображение для мобильных */
+    padding: 0;
+  }
+
+  .info {
+    width: 100%;
+  }
 }
+

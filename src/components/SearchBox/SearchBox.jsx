@@ -1,31 +1,42 @@
+
 import  { useState } from 'react';
 import './SearchBox.css';
+import { useDispatch } from 'react-redux';
+import { fetchMovies } from '../../redux/actions';
 
 const SearchBox =()=> {
-    const [state,setState]=useState({
-        searchLine: ''
-    })
-   
+    const dispatch = useDispatch();
+    
+
+    const [searchLine,setSearchLine] = useState('');
     const searchLineChangeHandler = (e) => {
-        this.setState({ searchLine: e.target.value });
+        setSearchLine( e.target.value );
     }
     const searchBoxSubmitHandler = (e) => {
         e.preventDefault();
+        if(searchLine){
+            dispatch(fetchMovies(searchLine))
+        
+        }
+        
+        
     }
     
-        const { searchLine } = state;
+        
 
         return (
             <div className="search-box">
-                <form className="search-box__form" onSubmit={searchBoxSubmitHandler}>
+                <form id='name' className="search-box__form" onSubmit={searchBoxSubmitHandler}>
                     <label className="search-box__form-label">
                         Искать фильм по названию:
                         <input
                             value={searchLine}
                             type="text"
+                            name='name'
                             className="search-box__form-input"
                             placeholder="Например, Shawshank Redemption"
                             onChange={searchLineChangeHandler}
+                            autoComplete='name'
                         />
                     </label>
                     <button
@@ -41,4 +52,4 @@ const SearchBox =()=> {
     
 }
  
-export default SearchBox;
+export default SearchBox; 

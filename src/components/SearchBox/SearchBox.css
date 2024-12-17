@@ -6,6 +6,7 @@
     display: inline-block;
     font-size: 12px;
     margin-right: 10px;
+    font-weight: bold;
 }
 
 .search-box__form-input {
@@ -14,8 +15,9 @@
     margin-top: 5px;
     width: 300px;
     font-size: 14px;
-    padding: 5px 10px;
+    padding: 8px 10px;
     border: 1px solid rgba(0, 8, 7, .5);
+    border-radius: 5px;
 }
 
 .search-box__form-submit {
@@ -25,6 +27,7 @@
     transition: all 0.2s linear;
     color: #FFEEDB;
     background-color: rgba(0, 8, 7);
+    border-radius: 6px;
 }
 
 .search-box__form-submit:hover:not(:disabled) {
@@ -39,3 +42,12 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+@media screen and (min-width: 320px) and (max-width: 991px) {
+    .search-box__form {
+      width: 90%;
+      padding: 0;
+    }
+    .search-box__form-input {
+      width: 320px;
+    }
+  }
