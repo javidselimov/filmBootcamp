@@ -1,3 +1,4 @@
+
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import ListPage from './pages/ListPage/ListPage';
@@ -14,6 +15,6 @@ const App = () => {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
