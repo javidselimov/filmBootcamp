@@ -27,7 +27,7 @@ const SearchBox = ({ onSearch }) => {
       console.error('API sorğusu zamanı xəta:', error);
     }
   };
-
+  
   return (
     <div className="search-box">
       <form className="search-box__form" onSubmit={searchBoxSubmitHandler}>
